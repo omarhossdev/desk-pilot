@@ -1,0 +1,30 @@
+[project]
+name = "ai-partner"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pyright>=1.1.411",
+    "ruff>=0.15.22",
+]
+
+[tool.pyright]
+pythonVersion = "3.13"
+typeCheckingMode = "strict"
+reportMissingTypeStubs = false
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "F",    # pyflakes
+    "ANN",  # type annotations
+    "B",    # bugbear (catches bugs!)
+    "C4",   # flake8-comprehensions
+    "SIM",  # simplify
+    "TCH",  # type-checking
+]
+ignore = []
