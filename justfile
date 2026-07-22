@@ -17,6 +17,6 @@ test:
 test-cov:
 		PYTHONPATH=. uv run pytest --cov=src tests/ --cov-report=term-missing
 
-run: check
+run:
 		uv run python src/main.py
 

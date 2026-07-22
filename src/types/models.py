@@ -18,3 +18,5 @@ class Todo(TypedDict):
     urgent: Urgent
     is_in_calendar: bool
     is_sent_to_someone: bool
+    completed: bool
+    tag: str
