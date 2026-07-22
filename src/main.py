@@ -5,9 +5,9 @@ import sys
 
 def main() -> None:
     clear_terminal()
-    #draw_logo()
-    #typewriter(f"AI: {greet("Omar")}  How can I help you today? ☺️")
-    
+    draw_logo()
+    typewriter(f"AI: {greet('Omar')}  How can I help you today? ☺️")
+
     while True:
         print_home_options()
 
@@ -21,6 +21,7 @@ def main() -> None:
             sys.stdout.write("\nOops, wrong number! No worries 😄\n")
             continue
         break
+
 
 if __name__ == "__main__":
     main()

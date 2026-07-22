@@ -1,53 +1,66 @@
 from datetime import datetime
 from src.types.models import Todo, Urgent
 from typing import Union
+from sqlite_utils import Database
 
 
-def addTodo(
-    todos: list[Todo], title: str, description: str, urgent: Urgent
+def add_todo(
+    db: Database,
+    title: str,
+    description: str | None = None,
+    urgent: Urgent | None = None,
+    tag: str | None = None,
 ) -> Union[None, ValueError]:
-    if not title or not description or not urgent:
+    if not title:
         return ValueError("Parameters should be valid strings and have length > 0")
 
-    todos.append(
-        {
-            "title": title,
-            "description": description,
-            "urgent": urgent,
-            "is_in_calendar": False,
-            "is_sent_to_someone": False,
-            "added_at": datetime.now(),
-            "last_update_at": datetime.now(),
-        }
-    )
+    new_todo = {
+        "title": title,
+        "is_in_calendar": False,
+        "is_sent_to_someone": False,
+        "completed": False,
+        "added_at": datetime.now(),
+        "last_update_at": datetime.now(),
+    }
+
+    if description:
+        new_todo["description"] = description
+    if urgent:
+        new_todo["urgent"] = urgent
+    if tag:
+        new_todo["tag"] = tag
+
+    db["todos"].insert(new_todo, pk="id")
 
     return None
 
 
-def editTodo(
-    todos: list[Todo],
-    index: int,
+def edit_todo(
+    db: Database,
+    todo_id: int,
     title: str | None = None,  # string or None, default is None
     description: str | None = None,
     urgent: Urgent | None = None,
+    tag: str | None = None,
 ) -> Union[None, KeyError]:
     try:
-        updated = False
+        cols_to_update = {}
 
         if title is not None:
-            todos[index]["title"] = title
-            updated = True
+            cols_to_update["title"] = title
 
         if description is not None:
-            todos[index]["description"] = description
-            updated = True
+            cols_to_update["description"] = description
 
         if urgent is not None:
-            todos[index]["urgent"] = urgent
-            updated = True
+            cols_to_update["urgent"] = urgent
 
-        if updated:
-            todos[index]["last_update_at"] = datetime.now()
+        if tag is not None:
+            cols_to_update["tag"] = tag
+
+        if cols_to_update:
+            cols_to_update["last_update_at"] = datetime.now().isoformat()
+            db["todos"].update(todo_id, cols_to_update)
 
     except KeyError:
         return KeyError("'index' is out of range")
@@ -55,24 +68,32 @@ def editTodo(
     return None
 
 
-def removeTodo(todos: list[Todo], index: int) -> Union[None, KeyError]:
+def complete_todo(db: Database, todo_id: int) -> Union[None, KeyError]:
+    db["todos"].update(todo_id, {"completed": True})
+
+
+def remove_todo(db: Database, todo_id: int) -> Union[None, KeyError]:
     try:
-        todos.pop(index)
+        db["todos"].delete(todo_id)
     except KeyError:
         return KeyError("'index' is out of range")
     return None
 
 
-def printTodos(todos: list[Todo]) -> Union[None, ValueError]:
+def get_todo(db: Database, todo_id: int) -> Todo:
+    return db["todos"].get(todo_id)
+
+
+def print_todos(db: Database) -> Union[None, ValueError]:
     try:
-        for i, todo in enumerate(todos):
+        for i, todo in enumerate(db["todos"].rows):
             print(f"{i}. {todo['title']} [{todo['urgent']}]")
     except ValueError:
         return ValueError("'todos' cannot be None and must be a list")
     return None
 
 
-def printTodoInfo(todo: Todo) -> Union[None, ValueError]:
+def print_todo_info(todo: Todo) -> Union[None, ValueError]:
     try:
         print(f"Title:\n{todo['title']}\n")
         print(f"Description:\n{todo['description']}\n")

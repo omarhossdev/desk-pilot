@@ -7,7 +7,7 @@ from colorama import Fore, Style, init
 
 
 def clear_terminal() -> None:
-    subprocess.run('cls' if os.name == 'nt' else 'clear', shell=True)
+    subprocess.run("cls" if os.name == "nt" else "clear", shell=True)
 
 
 def draw_logo() -> None:
@@ -19,7 +19,7 @@ def draw_logo() -> None:
 
 def typewriter(text: str, delay: float = 0.03) -> None:
     """Prints text letter by letter.
-    
+
     :param text: The string to print
     :param delay: Time to wait between characters in seconds
     """
@@ -28,4 +28,3 @@ def typewriter(text: str, delay: float = 0.03) -> None:
         sys.stdout.flush()  # Forces character to render immediately
         time.sleep(delay)
     print()  # Add final newline at the end
-
