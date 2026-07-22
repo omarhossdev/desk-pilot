@@ -1,5 +1,5 @@
 def greet(name: str) -> str:
-    return f"Hello {name}"
+    return f"Good Morning, {name}!"
 
 
 def main() -> None:
