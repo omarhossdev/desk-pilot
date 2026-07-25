@@ -1,13 +1,56 @@
-# 🤖 AI Partner
+# 🧭 Desk Pilot
 
-Your digital local AI life partner to help you organize your thoughts, ideas, plans etc.. consider it your private friend and assistant when you are sad or stressed.
+**Command your digital workspace. Todos, calendar, encrypted backups, audio playback, and local AI – no memorization required.**
 
-## 🔨 Getting Started
+Desk Pilot is a cross-platform desktop assistant that brings all your digital tools under one roof. No more juggling apps – just a clean terminal interface with helpful GUI dialogs when you need them.
 
-1. Make sure you have [uv package manager](https://docs.astral.sh/uv/)
-2. Make sure you have [just command runner](https://github.com/casey/just) to run commands from `justfile`
-3. Move to your project directory, open the terminal and run `just install` to install the packages.
-4. Run the project using `just run` and *Volia!*
+---
+
+## ✨ Features
+
+- 📝 **Task Management** – Add, list, and complete todos with natural language
+- 📅 **Calendar Integration** – Schedule events with a visual date picker
+- ☁️ **Encrypted Backups** – Secure your folders and upload to Google Drive, Dropbox, or your own cloud
+- 🔊 **Audio Playback** – Select any audio file via GUI picker and play it with your default player
+- 🤖 **Local AI Chat** – Privacy-first conversations using Ollama (no data leaves your machine)
+- 🔄 **Cross-Platform** – Works on Windows, macOS, and Linux
+- 🎯 **Zero Memorization** – Navigate with menus, file dialogs, and natural language
+
+---
+
+## 🚀 Quick Start
+
+1. Clone the repo and move there:
+```bash
+# Clone the repository
+git clone https://github.com/omarhossdev/desk-pilot.git
+cd desk-pilot
+```
+2. Make sure you have [uv package manager](https://docs.astral.sh/uv/)
+3. Make sure you have [just command runner](https://github.com/casey/just) to run commands from `justfile`
+4. open the terminal and run `just install` to install the dependencies.
+5. Run the project using `just run` and *Volia!*
+
+---
+
+## 💡 Why Desk Pilot?
+
+**Most CLI tools:** "Read the 50-page manual!"
+**Most GUI apps:** "Click through 15 menus!"
+
+**Desk Pilot:** "Press 2, pick your files, done."
+
+It's the sweet spot – powerful enough for developers, *simple enough for everyone else.*
+
+---
+
+## 🔒 Privacy First
+
+- All data stays **local** on your machine
+- Optional cloud backups are **end-to-end encrypted**
+- AI runs **locally** – no API calls, no tracking
+
+--- 
 
 ## ⚖️ LICENSE
 
