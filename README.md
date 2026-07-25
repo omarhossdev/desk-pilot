@@ -1,6 +1,6 @@
 # 🧭 Desk Pilot
 
-**Command your digital workspace. Todos, calendar, encrypted backups, audio playback, and local AI – no memorization required.**
+**Command your digital workspace. Todos, notes, calendar, encrypted backups, audio playback, and local AI – no memorization required.**
 
 Desk Pilot is a cross-platform desktop assistant that brings all your digital tools under one roof. No more juggling apps – just a clean terminal interface with helpful GUI dialogs when you need them.
 
@@ -9,6 +9,7 @@ Desk Pilot is a cross-platform desktop assistant that brings all your digital to
 ## ✨ Features
 
 - 📝 **Task Management** – Add, list, and complete todos with natural language
+- 📔 **Note Taking:** Take your notes here and connect them with other desk pilot tools or share them with friends!
 - 📅 **Calendar Integration** – Schedule events with a visual date picker
 - ☁️ **Encrypted Backups** – Secure your folders and upload to Google Drive, Dropbox, or your own cloud
 - 🔊 **Audio Playback** – Select any audio file via GUI picker and play it with your default player
@@ -52,6 +53,23 @@ It's the sweet spot – powerful enough for developers, *simple enough for every
 
 --- 
 
+## 🔨 Tech Stack
+
+1. Python +3.13
+2. `uv` modern easy to use package manager
+3. `just` to run justfile so you can easily run `just install` to install packages or `just test` to test etc..
+4. `ruff` for code linting and formating
+5. `pyright` to add static typing and strict type check to ensure everything is working as expected
+6. `plyer` simple GUI tool to easily select files and folders
+7. `pytest` testing
+
+---
+
 ## ⚖️ LICENSE
 
 This project is under MIT License
+
+---
+
+This README is not done yet so stay tuned!
+If you found this tool useful, give it a star to help it grow ⭐
