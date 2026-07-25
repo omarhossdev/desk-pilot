@@ -12,3 +12,4 @@ wheels/
 htmlcov/
 .coverage.*
 .env
+src/utils/data.json

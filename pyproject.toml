@@ -7,7 +7,10 @@ requires-python = ">=3.13"
 dependencies = [
     "colorama>=0.4.6",
     "platformdirs>=4.11.0",
+    "plyer>=2.1.0",
     "pyfiglet>=1.0.4",
+    "quo>=2023.5.1",
+    "setuptools>=83.0.0",
     "sqlite-utils>=4.1.1",
 ]
 

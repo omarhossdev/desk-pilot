@@ -13,7 +13,7 @@ def clear_terminal() -> None:
 def draw_logo() -> None:
     init(autoreset=True)
 
-    ascii_art = pyfiglet.figlet_format("AI Partner", font="smslant", width=80)
+    ascii_art = pyfiglet.figlet_format("Desk Pilot", font="smslant", width=80)
     print(Fore.BLUE + Style.BRIGHT + ascii_art)
 
 

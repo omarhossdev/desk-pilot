@@ -11,3 +11,4 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 # Use it!
 DB_FILE = DATA_DIR / "database.db"
+ 
