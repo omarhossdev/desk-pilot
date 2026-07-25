@@ -34,10 +34,11 @@ def backup() -> None:
 
 
 home_options = [
-    {"title": "💬 Let's chat ", "method": chat},
     {"title": "✅ Todo list", "method": todo_list},
     {"title": "📅 Calendar", "method": calendar},
     {"title": "📝 Notes", "method": notes},
+    {"title": "🔊 Play Audio", "method": notes},
+    {"title": "🤖 Automate", "method": notes},
     {"title": "☁️  Backup", "method": backup},
 ]
 

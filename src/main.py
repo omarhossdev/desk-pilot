@@ -12,17 +12,20 @@ def main() -> None:
 
         while True:
             print_home_options()
+            print("hint: press Ctrl+C to quit\n")
 
             session = Prompt()
-            print("Play: Audio(a)")
             inp = session.prompt(
                 "#=> ",
-                placeholder='<gray>Message AI or select opt above (1-5)...</gray>'
+                placeholder='<gray>Message AI or select number above (1-6)...</gray>'
             )
 
-            if inp == 'a':
+            if inp.lower() == '4':
                 audio_app()
+            else:
+                print("Goodbye 👋")
+                break
     except KeyboardInterrupt:
-        print("Bye Bye :)")
+        print("Goodbye 👋")
 if __name__ == "__main__":
     main()

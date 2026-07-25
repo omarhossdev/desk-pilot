@@ -32,13 +32,13 @@ def play_sounds(sounds: list[str]):
 
 
 def audio_app() -> None:    
-    music_folder: str = ''
+    saved_audio_folder: str = ''
 
     with open(json_file) as f:
-        music_folder = json.load(f)['music']
+        saved_audio_folder = json.load(f)['music']
 
     while True:
-        if music_folder:
+        if saved_audio_folder:
             print("\n==========================")
             print("🔊 Audio Player")
             print("==========================")
@@ -51,12 +51,12 @@ def audio_app() -> None:
             if opt == '1':
                 audio_files: list[str] = []
                 filechooser.open_file(
-                    title="Choose Music files",
+                    title="Choose Audio files",
                     multiple=True,
                     filters=[
                         ("Audio Files", "*.mp3", "*.wav", "*.ogg", "*.flac", "*.m4a", "*.aac")
                     ],
-                    path=music_folder,
+                    path=saved_audio_folder,
                     on_selection=lambda selection: audio_files.extend(selection)
                 )
 
@@ -82,7 +82,7 @@ def audio_app() -> None:
                     data = json.load(f)
 
                 data['music'] = folder_path
-                music_folder = folder_path
+                saved_audio_folder = folder_path
 
                 with open(json_file, 'w') as f:
                     json.dump(data, f, indent=2)
